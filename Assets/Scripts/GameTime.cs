@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameTime : MonoBehaviour {
-    public string GameTimeString;
+	UpdateUI _UpdateUI;
+
+	public string GameTimeString;
     public int month;
     public int day;
     public int year;
@@ -13,16 +15,24 @@ public class GameTime : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        month = 01;
+		GameObject UIEmpty = GameObject.Find("UI_Empty");
+		if (UIEmpty)
+		{
+			_UpdateUI = UIEmpty.GetComponent<UpdateUI>();
+		}
+
+		month = 01;
         day = 01;
         year = 2100;
         hour = 12;
         minute = 00;
         second = 00;
-        UpdateGameTimeString();
-    }
 
-    public string GetGameTime()
+        UpdateGameTimeString();
+		_UpdateUI.UpdateGameTimeUI(GameTimeString);
+	}
+
+	public string GetGameTime()
     {
         return GameTimeString;
     }
@@ -32,37 +42,44 @@ public class GameTime : MonoBehaviour {
         second += 1;
         RunTimeConversion();
         UpdateGameTimeString();
-    }
+		_UpdateUI.UpdateGameTimeUI(GameTimeString);
+	}
 
     public void AdvanceTime1Minute()
     {
         minute += 1;
         RunTimeConversion();
         UpdateGameTimeString();
-    }
+		_UpdateUI.UpdateGameTimeUI(GameTimeString);
 
-    public void AdvanceTime1Hour()
+	}
+
+	public void AdvanceTime1Hour()
     {
         hour += 1;
         RunTimeConversion();
         UpdateGameTimeString();
-    }
+		_UpdateUI.UpdateGameTimeUI(GameTimeString);
 
-    public void AdvanceTime1Day()
+	}
+
+	public void AdvanceTime1Day()
     {
         day += 1;
         RunTimeConversion();
         UpdateGameTimeString();
-    }
+		_UpdateUI.UpdateGameTimeUI(GameTimeString);
+	}
 
-    public void AdvanceTime1Week()
+	public void AdvanceTime1Week()
     {
         day += 7;
         RunTimeConversion();
         UpdateGameTimeString();
-    }
+		_UpdateUI.UpdateGameTimeUI(GameTimeString);
+	}
 
-    public void RunTimeConversion()
+	public void RunTimeConversion()
     {
         if(second >= 60)
         {
@@ -94,6 +111,5 @@ public class GameTime : MonoBehaviour {
     public void UpdateGameTimeString()
     {
         GameTimeString = month + "." + day + "." + year + " " + hour.ToString("D2") + minute.ToString("D2") + "." + second.ToString("D2");
-
     }
 }

@@ -18,8 +18,8 @@ public class UpdateUI : MonoBehaviour {
         }
     }
 
-    void Update()
+    public void UpdateGameTimeUI(string GameTimeString)
     {
-        TextTime.text = _GameTime.GetGameTime().ToString();
+        TextTime.text = GameTimeString.ToString();
     }
 }
