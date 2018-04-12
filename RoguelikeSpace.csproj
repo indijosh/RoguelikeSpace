@@ -284,6 +284,17 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\GameTime.cs" />
     <Compile Include="Assets\Scripts\MainGameLoop.cs" />
+    <Compile Include="Assets\Scripts\RaceGeneration.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\CharacterSetup.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GalaxyGenerator\GalaxyGenerator.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GalaxyGenerator\ListPlanets.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GalaxyGenerator\ListSatellite.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GalaxyGenerator\ListStars.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GalaxyGenerator\SolarSystem.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GameStartGeneration.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\GameStartScreen.cs" />
+    <Compile Include="Assets\Scripts\StartingMenus\NewGameScreen.cs" />
+    <Compile Include="Assets\Scripts\UIManager.cs" />
     <Compile Include="Assets\Scripts\UpdateUI.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
